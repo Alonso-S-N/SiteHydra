@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="287049938.png" type="image/x-icon">
+    <title>Cursos - Hydra</title>          
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="Hydra Logo.png" alt="Logo Hydra">
+            <h1 class="vilan">HYDRA</h1>
+        </div>
+        <nav>
+            <a href="SobreNos.html">Quem Somos</a>
+            <a href="AssistenteIA.html">Crie seu proprio evento</a>
+            <a href="Index.html">Organização</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="vilan" style="text-align: center; font-size: 2.5rem;">Projetos</h1>
+        <p style="text-align: center;">Selecione uma área abaixo para acessar os projetos selecionados pela nossa equipe.</p>
+
+        <div class="menu-cursos">
+            <button id="btn-RoboArt" onclick="mostrar('RoboArt', this)">Robo Art</button>
+            <button id="btn-CarrinhoEletrico" onclick="mostrar('CarrinhoEletrico', this)">Carro Elétrico</button>
+            <button id="btn-geradorEolico" onclick="mostrar('geradorEolico', this)">Gerador Eólico</button>
+            <button id="btn-Maquina de choques" onclick="mostrar('Maquina de choques', this)">Máquina de Choques</button>
+            <button id = "btn-BraçoHidraulico" onclick="mostrar('BraçoHidraulico', this)">Braço Hidráulico</button>
+        </div>
+
+        <div id="inicio" style="text-align: center; margin-top: 50px;">
+            <img src="Hydra Logo.png" alt="Hydra" style="width: 150px; opacity: 0.2; filter: grayscale(100%);">
+        </div>
+
+        <div id="conteudo" style="display: none;"></div>
+    </main>
+    
+    <script>
+    function mostrar(area, elementoClicado) {
+        document.getElementById("inicio").style.display = "none";
+
+        const botoes = document.querySelectorAll('.menu-cursos button');
+        botoes.forEach(btn => btn.classList.remove('ativo'));
+
+        elementoClicado.classList.add('ativo');
+
+        const conteudo = document.getElementById("conteudo");
+        conteudo.style.display = "block";
+
+        if (area === "RoboArt") {
+            conteudo.innerHTML = `
+             <h2 class="vilan">RoboArt </h2>
+            <p>Aprenda a criar um robô que realiza artes abstratas</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid #ff2a2a;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/J0UfPM6qJ24" 
+                    title="Vídeo RoboArt"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <h2 class="vilan" style="margin-top: 30px;">Materiais necessários</h2>
+            <p>Para construir o robô, você precisará dos seguintes materiais:</p>
+            <ul>
+                <li>1x Bateria 9V</li>
+                <li>1x Interruptor </li>
+                <li>+3x Canetas (ou marcador)</li>
+                <li>3x palitos de picolé</li>
+                <li>Fios</li>
+                <li>Cola quente</li>
+                <li>1x Motor DC</li>
+                <li>1x Base para o robô ( no video é utilizado uma base de kinder ovo)</li>
+                <li> 1x hélices de plastico </li>
+            </ul>
+            `;
+        }
+        else if (area === "CarrinhoEletrico") {
+            conteudo.innerHTML = `
+                <h2 class="vilan">Carrinho Elétrico</h2>
+                <p>Aprenda a fazer um carro elétrico com materiais recicláveis.</p>
+              <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid #ff2a2a;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/QvdzUbGwnvA?si=XRue1Mdmj1ot5gf9" 
+                    title="Vídeo Carro Elétrico"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <h2 class="vilan" style="margin-top: 30px;">Materiais necessários</h2>
+            <p>Para construir o robô, você precisará dos seguintes materiais:</p>
+            <ul>
+                <li>Papelão</li>
+                <li>8 tampinhas de garrafa pet</li>
+                <li>1 espeto de churrasco</li>
+                <li>1 canudo de papel</li>
+                <li>1 polia, 1 liga e um Motor DC de drive de DVD</li>
+                <li>1 interruptor</li>
+                <li>1 bateria 9v</li>
+                <li>1 adaptador de bateria 9V</li>
+                <li>Fita isolante</li>
+            </ul>
+                
+            `;
+        }
+        else if (area === "geradorEolico") {
+            conteudo.innerHTML = `
+                <h2 class="vilan">Gerador Eólico</h2>
+                <p>Aprenda a criar um mini gerador eólico em casa.</p>
+               <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid #ff2a2a;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/VKFpp1oljps?si=DM3lGZV7Ty-QXq0n" 
+                    title="Vídeo Gerador Eólico"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+              <h2 class="vilan" style="margin-top: 30px;">Materiais necessários</h2>
+            <p>Para construir o robô, você precisará dos seguintes materiais:</p>
+            <ul>
+                <li>1x Motor DC</li>
+                <li>1x hélice (pode ser feito com lâminas de plástico)</li>
+                <li>1x Bateria 9V</li>
+                <li>1x Interruptor</li>
+                <li>Fios</li>
+                <li>Cola quente</li>
+                <li>1x Base para o gerador (pode ser feito com papelão ou madeira)</li>
+                <li>1x Suporte para o motor (pode ser feito com papelão,madeira ou tubo de PVC)</li>
+                <li> 1x led (para indicar que o gerador está funcionando)</li>
+            </ul>
+            `;
+        } else if (area === "Maquina de choques") {
+            conteudo.innerHTML = `
+                <h2 class="vilan">Máquina de Choques</h2>
+                <p>Aprenda a construir uma máquina de choques com materiais recicláveis.</p>
+               <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid #ff2a2a;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/Lxe4FAI-g6s?si=2G-iV9lCMCFKvyOx" 
+                    title="Vídeo Máquina de Choques"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+              <h2 class="vilan" style="margin-top: 30px;">Materiais necessários</h2>
+            <p>Para construir o robô, você precisará dos seguintes materiais:</p>
+            <ul>
+                <li>1x pote com tampa</li>
+                <li>1x arame e prego</li>
+                <li>1x bolinha de pingue-pongue/de desodorante ou de papel alumínio</li>
+                <li>1x papel alumínio </li>
+                <li>Fios</li>
+                <li>fita adesiva</li>
+                <li>fita isolante</li>
+                <li> martelo </li>
+                <li>1x balão </li>
+            </ul>
+            `;
+        } else if (area === "BraçoHidraulico") {
+            conteudo.innerHTML = `
+                <h2 class="vilan">Braço Hidráulico</h2>
+                <p>Aprenda a construir um braço hidráulico com materiais recicláveis.</p>
+               <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 20px; border-radius: 10px; border: 1px solid #ff2a2a;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/P2r9U4wkjcc?si=E-21KnNMJ0CHCObF" 
+                    title="Vídeo Braço Hidráulico"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+              <h2 class="vilan" style="margin-top: 30px;">Materiais necessários</h2>
+            <p>Para construir o braço robótico, você precisará dos seguintes materiais:</p>
+            <ul>
+            <li>papelão</li>
+            <li>8x seringas com êmbolo de borracha</li>
+            <li>bateria antiga</li>
+            <li>4x canos</li>
+            <li>palitos de picolé</li>
+            <li>cola</li>
+            <li>água</li>
+            </ul>
+            `;
+        }
+    }
+    </script>
+</body>
+</html>
