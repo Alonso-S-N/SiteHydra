@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="IAstyle.css">
+    <link rel="shortcut icon" href="287049938.png" type="image/x-icon">
+    <title>AssistenteIA</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="Hydra Logo.png" alt="Logo Hydra">
+            <h1 class="vilan">HYDRA</h1>
+        </div>
+        <nav>
+            <a href="SobreNos.html">Quem Somos</a>
+            <a href="Projetos.html">Projetos</a>
+            <a href="Index.html">Organização</a>
+        </nav>
+    </header>
+
+    <h1 class="vilan" style="text-align: center; padding-top: 20px;">Scoutinho IA</h1>
+    <h2 class="vilan" style="text-align: center;">TEAM HYDRA 🐙🖤</h2>
+
+   <main>
+    <div id="loading" class="typing" style="display: none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <em style="color: #E62209; margin-left: 10px;">Scoutinho analisando...</em>
+    </div>
+
+    <div id="resposta" class="chat-container"></div>
+</main>
+<div class="bottom-bar">
+        <form onsubmit="event.preventDefault(); enviarParaIA();">
+            <input type="text" id="pergunta" placeholder="Pergunte à Hydra...">
+            <button type="button" id="buttonEnv" onclick="enviarParaIA()">⬆</button>
+        </form>
+    
+        <footer>
+            <p>&copy; HYDRA #9163</p>
+        </footer>
+</div>
+
+    <script>
+   async function enviarParaIA() {
+    const perguntaInput = document.getElementById('pergunta');
+    const respostaDiv = document.getElementById('resposta');
+    const loadingDiv = document.getElementById('loading');
+
+    const pergunta = perguntaInput.value;
+    if (!pergunta.trim()) return;
+
+    const msgUsuario = document.createElement('div');
+    msgUsuario.className = 'mensagem usuario';
+    msgUsuario.textContent = pergunta;
+    respostaDiv.appendChild(msgUsuario);
+
+    perguntaInput.value = "";
+    loadingDiv.style.display = "flex";
+     msgUsuario.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    try {
+        const res = await fetch('http://127.0.0.1:5000/perguntar', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({pergunta: pergunta})
+        });
+
+        const dados = await res.json();
+        loadingDiv.style.display = "none";
+
+        const msgIA = document.createElement('div');
+        msgIA.className = 'mensagem ia';
+        msgIA.innerHTML = dados.resposta
+            ? marked.parse(dados.resposta)
+            : "Erro ao receber resposta do servidor.";
+        respostaDiv.appendChild(msgIA);
+
+        respostaDiv.scrollTop = respostaDiv.scrollHeight;
+
+    } catch (error) {
+        loadingDiv.style.display = "none";
+        const msgErro = document.createElement('div');
+        msgErro.className = 'mensagem ia';
+        msgErro.textContent = "Erro: Servidor Python não respondeu.";
+        respostaDiv.appendChild(msgErro);
+        console.error(error);
+    }
+}
+    </script>
+</body> 
+</html>
