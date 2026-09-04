@@ -16,11 +16,11 @@ body {
     font-family: "Rajdhani", sans-serif;
     color: #333333;
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: 100vh;        
 
     display: flex;
     flex-direction: column;
-     padding-bottom: 110px;
+    padding-bottom: 110px;    
 }
 
 h1, h2, h3 {
@@ -68,7 +68,7 @@ header {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(180deg,rgba(244, 245, 247, 0.4),rgba(244, 245, 247, 0.9));
+    background: linear-gradient(180deg,rgba(244, 245, 247, 0.466),rgba(244, 245, 247, 0.9));
     backdrop-filter: blur(12px);
     padding: 15px 0 5px;
     z-index: 999;
@@ -131,15 +131,14 @@ nav a:hover::after {
 }
 
 main {
-    width: min(1200px, 90%);
-    margin: 60px auto;
-    padding: 50px;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    animation: fadeIn 1s ease-in-out;
+    width: 100%;
+    margin: 0;
+    padding: 20px 5% 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
 }
 
 table{
@@ -275,15 +274,22 @@ td, th {
     line-height: 1.6;
     color: #333333;
 
-    max-height: 55vh;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
     gap: 15px;
-    padding-right: 10px;
+    padding: 10px 0 20px;
+}
+
+#loading {
+    flex-shrink: 0;
+    align-self: flex-start;
 }
 
 .mensagem {
+    position: relative;
     padding: 12px 18px;
     border-radius: 12px;
     max-width: 85%;
@@ -292,14 +298,143 @@ td, th {
 
 .mensagem.usuario {
     align-self: flex-end;
-    background: rgba(255, 42, 42, 0.1);
+    background: rgba(255, 146, 146, 0.559);
     border: 1px solid rgba(255, 42, 42, 0.3);
+    border-bottom-right-radius: 4px;
 }
+
+/* .mensagem.usuario::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -7px;
+    width: 14px;
+    height: 14px;
+    background: rgba(255, 42, 42, 0.1);
+    border-right: 1px solid rgba(255, 42, 42, 0.3);
+    border-bottom: 1px solid rgba(255, 42, 42, 0.3);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+} */
 
 .mensagem.ia {
     align-self: flex-start;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom-left-radius: 4px;
+}
+
+.mensagem.ia::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -7px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.mensagem.ia h1,
+.mensagem.ia h2,
+.mensagem.ia h3 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 1rem;
+    color: #ff2a2a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 12px 0 8px;
+    border-bottom: 1px solid rgba(255, 42, 42, 0.15);
+    padding-bottom: 4px;
+}
+
+.mensagem.ia h1:first-child,
+.mensagem.ia h2:first-child,
+.mensagem.ia h3:first-child {
+    margin-top: 0;
+}
+
+.mensagem.ia p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.mensagem.ia p:last-child {
+    margin-bottom: 0;
+}
+
+.mensagem.ia ul,
+.mensagem.ia ol {
+    margin: 0 0 10px 20px;
+    padding-left: 10px;
+}
+
+.mensagem.ia li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.mensagem.ia ul li::marker {
+    color: #ff2a2a;
+}
+
+.mensagem.ia strong {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.mensagem.ia em {
+    color: #555555;
+}
+
+.mensagem.ia code {
+    background: rgba(255, 42, 42, 0.08);
+    color: #d92626;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.mensagem.ia pre {
+    background: #1a1a1a;
+    color: #f4f5f7;
+    padding: 12px 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 10px;
+}
+
+.mensagem.ia pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+.mensagem.ia blockquote {
+    border-left: 3px solid #ff2a2a;
+    padding-left: 12px;
+    margin: 0 0 10px;
+    color: #555555;
+    font-style: italic;
+}
+
+.mensagem.ia a {
+    color: #ff2a2a;
+    text-decoration: underline;
+}
+
+.mensagem.ia table {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    box-shadow: none;
+}
+
+.mensagem.ia th,
+.mensagem.ia td {
+    padding: 8px;
 }
 
 .input-container {
