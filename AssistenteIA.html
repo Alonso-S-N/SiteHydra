@@ -1,216 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="IAstyle.css">
-    <link rel="shortcut icon" href="287049938.png" type="image/x-icon">
-
-    <title>AssistenteIA</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="IAstyle.css">
+<link rel="shortcut icon" href="287049938.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Kings&display=swap" rel="stylesheet">
+<title>AssistenteIA</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<meta name="color-scheme" content="light dark">
 </head>
-
 <body>
+<header>
+    <div class="logo">
+        <img src="hydra_logo_transparente.png" alt="Logo Hydra">
+        <h1 class="vilan">HYDRA</h1>
+    </div>
+    <nav>
+        <a href="Projetos.html">Projetos</a>
+        <a href="index.html">Organização</a>
+    </nav>
+</header>
 
-    <header>
-        <div class="logo">
-            <img src="Hydra Logo.png" alt="Logo Hydra">
-            <h1 class="vilan">HYDRA</h1>
-        </div>
+<h1 class="vilan titulo-ia" style="text-align: center; font-family: 'Kings', sans-serif; transition: all 0.3s ease;">Quimera IA</h1>
+<h2 class="vilan subtitulo-ia" style="text-align: center; transition: all 0.3s ease;">PLANEJADOR DE TORNEIOS • TEAM HYDRA 🐙🖤</h2>
 
-        <nav>
-            <a href="SobreNos.html">Quem Somos</a>
-            <a href="Projetos.html">Projetos</a>
-            <a href="Index.html">Organização</a>
-        </nav>
-    </header>
-
-
-    <h1 class="vilan titulo-ia" style="text-align: center;">Scoutinho IA</h1>
-    <h2 class="vilan subtitulo-ia" style="text-align: center;">TEAM HYDRA 🐙🖤</h2>
-
-
-    <main>
-
-        <div id="resposta" class="chat-container">
-
-
-            <div id="loading" class="typing">
-                <span></span>
-                <span></span>
-                <span></span>
-                <em>Scoutinho analisando...</em>
+<main>
+<section class="quiz-box">
+    <form id="quizForm">
+        <div class="quiz-grid">
+            <div class="quiz-group">
+                <label for="q_quantidade">1. Quantitativo de participantes esperados:</label>
+                <select id="q_quantidade" required>
+                    <option value="Pequeno porte (até 20 participantes / até 5 equipes)">Até 20 participantes (Pequeno porte)</option>
+                    <option value="Médio porte (de 20 a 40 participantes / 6 a 10 equipes)">De 20 a 40 participantes (Médio porte)</option>
+                    <option value="Grande porte (mais de 40 participantes / 11 a 20 equipes)">Mais de 40 participantes (Grande porte)</option>
+                    <option value="Evento massivo (mais de 80 participantes / mais de 20 equipes e público aberto)">Mais de 80 participantes (Evento massivo / aberto)</option>
+                </select>
             </div>
 
+            <div class="quiz-group">
+                <label for="q_formato">2. Formato da ação STEAM:</label>
+                <select id="q_formato" required>
+                    <option value="Oficinas práticas STEAM mão na massa (estações de experimentação)">Oficinas práticas STEAM (mão na massa)</option>
+                    <option value="Desafio ou competição criativa/tecnológica entre equipes">Desafio ou competição criativa entre equipes</option>
+                    <option value="Mostra interativa e demonstração aberta à comunidade">Mostra interativa / Demonstração para a comunidade</option>
+                    <option value="Hackathon ou maratona de prototipagem rápida">Hackathon / Maratona de prototipagem rápida</option>
+                    <option value="Feira de ciências, artes e inovação escolar/institucional">Feira de ciências, artes e inovação</option>
+                </select>
+            </div>
+
+            <div class="quiz-group">
+                <label for="q_publico">3. Público-alvo principal:</label>
+                <select id="q_publico" required>
+                    <option value="Crianças (5 a 10 anos - Ensino Fundamental I)">Crianças (5 a 10 anos)</option>
+                    <option value="Pré-adolescentes e adolescentes (11 a 14 anos - Ensino Fundamental II)">Pré-adolescentes (11 a 14 anos)</option>
+                    <option value="Jovens (15 a 18 anos - Ensino Médio / Técnico)">Jovens (15 a 18 anos)</option>
+                    <option value="Universitários e jovens adultos (18+ anos)">Universitários e jovens adultos (18+ anos)</option>
+                    <option value="Público misto e comunidade geral (famílias, estudantes e visitantes)">Público misto / Comunidade geral</option>
+                </select>
+            </div>
+
+            <div class="quiz-group">
+                <label for="q_habilidade">4. Principal habilidade a ser desenvolvida:</label>
+                <select id="q_habilidade" required>
+                    <option value="Pensamento lógico, programação e resolução de problemas tecnológicos">Pensamento lógico, programação e tecnologia</option>
+                    <option value="Engenharia prática, prototipagem física e construção mão na massa">Engenharia prática, prototipagem e construção</option>
+                    <option value="Criatividade, design, artes aplicadas e inovação">Criatividade, design, artes e inovação</option>
+                    <option value="Trabalho em equipe, liderança, comunicação e gestão de projetos">Trabalho em equipe, liderança e gestão</option>
+                    <option value="Investigação científica, raciocínio matemático e experimentação">Investigação científica, matemática e experimentação</option>
+                </select>
+            </div>
         </div>
 
-    </main>
+        <button type="submit" id="buttonEnv" class="btn-gerar">
+            <span class="btn-text">Gerar Planejamento</span>
+        </button>
+    </form>
+</section>
 
-
-    <div class="bottom-bar">
-
-        <form id="chatForm">
-
-            <input
-                type="text"
-                id="pergunta"
-                placeholder="Pergunte à Hydra..."
-                autocomplete="off"
-            >
-
-            <button
-                type="submit"
-                id="buttonEnv"
-                aria-label="Enviar pergunta"
-            >
-                ⬆
-            </button>
-
-        </form>
-
-        <footer>
-            <p>&copy; HYDRA #9163</p>
-        </footer>
-
+    <div id="resposta" class="chat-container">
+        <div id="loading" class="typing" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+            <em>Quimera cruzando dados das equipes FRC...</em>
+        </div>
     </div>
+</main>
 
+<footer style="text-align: center; padding: 20px;">
+    <p>&copy; HYDRA #9163</p>
+</footer>
 
-    <script>
+<script>
 
-        const form = document.getElementById("chatForm");
-        const perguntaInput = document.getElementById("pergunta");
-        const respostaDiv = document.getElementById("resposta");
-        const loadingDiv = document.getElementById("loading");
-        const buttonEnv = document.getElementById("buttonEnv");
+const URL_BACKEND = (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost")
+    ? "http://127.0.0.1:5000/perguntar"
+    : "https://onrender.com";
 
+const quizForm = document.getElementById("quizForm");
+const respostaDiv = document.getElementById("resposta");
+const loadingDiv = document.getElementById("loading");
+const buttonEnv = document.getElementById("buttonEnv");
 
-        form.addEventListener("submit", function(event) {
+quizForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-            event.preventDefault();
+    const resumoQuestionario = `
+Parâmetros do Evento STEAM definidos pelo usuário:
+1. Quantitativo de participantes: ${document.getElementById("q_quantidade").value}
+2. Formato da ação STEAM: ${document.getElementById("q_formato").value}
+3. Público-alvo: ${document.getElementById("q_publico").value}
+4. Habilidade principal a desenvolver: ${document.getElementById("q_habilidade").value}
+`.trim();
 
-            enviarParaIA();
+    buttonEnv.disabled = true;
+    loadingDiv.style.display = "flex";
+    respostaDiv.innerHTML = "";
+    respostaDiv.appendChild(loadingDiv);
 
+    // 1. Desce suavemente até o "Quimera analisando..." assim que clicar no botão
+    setTimeout(() => {
+        loadingDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 50);
+
+    try {
+        const res = await fetch(URL_BACKEND, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ pergunta: resumoQuestionario })
         });
 
-
-        async function enviarParaIA() {
-
-            const pergunta = perguntaInput.value.trim();
-
-            if (!pergunta) {
-                return;
-            }
-
-
-
-            const msgUsuario = document.createElement("div");
-
-            msgUsuario.className = "mensagem usuario";
-
-            msgUsuario.textContent = pergunta;
-
-            respostaDiv.appendChild(msgUsuario);
-
-
-            perguntaInput.value = "";
-
-
-            buttonEnv.disabled = true;
-
-            perguntaInput.disabled = true;
-
-
-            loadingDiv.style.display = "flex";
-
-
-            try {
-
-                const res = await fetch(
-                    "http://127.0.0.1:5000/perguntar",
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-
-                        body: JSON.stringify({
-                            pergunta: pergunta
-                        })
-                    }
-                );
-
-
-                if (!res.ok) {
-                    throw new Error(
-                        "Erro HTTP: " + res.status
-                    );
-                }
-
-
-                const dados = await res.json();
-
-
-                loadingDiv.style.display = "none";
-
-
-                const msgIA = document.createElement("div");
-
-                msgIA.className = "mensagem ia";
-
-
-                if (dados.resposta) {
-
-                    msgIA.innerHTML = marked.parse(
-                        dados.resposta
-                    );
-
-                } else {
-
-                    msgIA.textContent =
-                        "Erro ao receber resposta do servidor.";
-
-                }
-
-
-                respostaDiv.appendChild(msgIA);
-
-
-            } catch (error) {
-
-                console.error(
-                    "Erro ao conectar com o servidor:",
-                    error
-                );
-
-
-                loadingDiv.style.display = "none";
-
-
-                const msgErro = document.createElement("div");
-
-                msgErro.className = "mensagem ia erro";
-
-                msgErro.textContent =
-                    "Erro: Servidor Python não respondeu.";
-
-
-                respostaDiv.appendChild(msgErro);
-
-            }
-
-
-            buttonEnv.disabled = false;
-
-            perguntaInput.disabled = false;
-
-            perguntaInput.focus();
-
+        if (!res.ok) {
+            throw new Error("Erro HTTP: " + res.status);
         }
 
-    </script>
+        const dados = await res.json();
+        loadingDiv.style.display = "none";
 
+        const msgIA = document.createElement("div");
+        msgIA.className = "mensagem ia";
+        if (dados.resposta) {
+            msgIA.innerHTML = marked.parse(dados.resposta);
+        } else {
+            msgIA.textContent = "Erro ao receber resposta do servidor.";
+        }
+        respostaDiv.appendChild(msgIA);
+
+        // 2. Leva o usuário suavemente para o início da mensagem da IA
+        setTimeout(() => {
+            msgIA.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+
+    } catch (error) {
+        console.error("Erro ao conectar com o servidor:", error);
+        loadingDiv.style.display = "none";
+        const msgErro = document.createElement("div");
+        msgErro.className = "mensagem ia erro";
+        msgErro.textContent = "Erro: Servidor Python não respondeu. Verifique se o ScoutinhoIA.py está rodando.";
+        respostaDiv.appendChild(msgErro);
+
+        msgErro.scrollIntoView({ behavior: "smooth", block: "center" });
+    } finally {
+        buttonEnv.disabled = false;
+    }
+});
+</script>
 </body>
 </html>
+

@@ -61,8 +61,8 @@ header {
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     filter: drop-shadow(0 0 5px rgba(255, 42, 42, 0.5));
 }
@@ -248,3 +248,88 @@ td, th {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ================= MODO DARK AUTOMÁTICO PELO NAVEGADOR ================= */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0d0e12;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(255, 42, 42, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 85% 30%, rgba(255, 42, 42, 0.08) 0%, transparent 50%);
+        color: #e0e0e0;
+    }
+
+    h1, 
+    h2, 
+    h3,
+    .logo h1 {
+        color: #ffffff;
+    }
+
+    .vilan {
+        text-shadow: 0 0 12px rgba(255, 42, 42, 0.6);
+    }
+
+    header {
+        background: rgba(15, 16, 21, 0.85);
+        border-bottom: 1px solid rgba(255, 42, 42, 0.35);
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+        color: #e0e0e0;
+    }
+
+    nav a:hover {
+        color: #ff2a2a;
+    }
+
+    main {
+        background: rgba(20, 22, 29, 0.75);
+        border: 1px solid rgba(255, 42, 42, 0.15);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    table {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    td, 
+    th {
+        border: 1px solid rgba(255, 42, 42, 0.25);
+        color: #e0e0e0;
+    }
+
+    .card {
+        background: linear-gradient(145deg, #181a22, #111218);
+        border: 1px solid rgba(255, 42, 42, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .card:hover {
+        border-color: rgba(255, 42, 42, 0.7);
+        box-shadow: 0 15px 30px rgba(255, 42, 42, 0.2), 0 0 15px rgba(255, 42, 42, 0.1) inset;
+    }
+
+    .menu-cursos button {
+        color: #ffffff;
+    }
+
+    #conteudo {
+        background: rgba(22, 24, 32, 0.9);
+        border: 1px solid rgba(255, 42, 42, 0.25);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    #conteudo img {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #121318;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #2a2a2a, #ff6666, #ff2a2a);
+    }
+}

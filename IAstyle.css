@@ -21,6 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     padding-bottom: 110px;    
+
+    animation: fadeIn 1s ease-in-out;
 }
 
 h1, h2, h3 {
@@ -321,6 +323,7 @@ td, th {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-bottom-left-radius: 4px;
+    scroll-margin-top: 90px;
 }
 
 .mensagem.ia::after {
@@ -477,24 +480,24 @@ input[type="text"]:focus, input:focus {
 }
 
 #buttonEnv {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    ;
 
-    width: 45px;
-    height: 40px;
-
-    padding: 0;
+    padding: 5px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 20px;
+    margin: 25px auto 0;
+    padding: 12px 24px;
+
+    border-radius: 6px;
 
     background: transparent;
-    color: #1a1a1a;
+    color: #f1f1f1;
 
     border: 2px solid #ff2a2a;
 
@@ -629,4 +632,241 @@ main::-webkit-scrollbar-thumb:hover {
         font-size: 0.9rem;
         margin: 0;
     }
+}
+/* ================= MODO DARK AUTOMÁTICO - CSS 2 (COM CHAT) ================= */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0d0e12;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(255, 42, 42, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 85% 30%, rgba(255, 42, 42, 0.08) 0%, transparent 50%);
+        color: #e0e0e0;
+    }
+
+    h1, 
+    h2, 
+    h3,
+    .logo h1 {
+        color: #ffffff;
+    }
+
+    .vilan {
+        text-shadow: 0 0 12px rgba(255, 42, 42, 0.6);
+    }
+
+    header {
+        background: rgba(15, 16, 21, 0.85);
+        border-bottom: 1px solid rgba(255, 42, 42, 0.35);
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .bottom-bar {
+        background: linear-gradient(180deg, rgba(13, 14, 18, 0.5), rgba(13, 14, 18, 0.95));
+        border-top: 1px solid rgba(255, 42, 42, 0.25);
+    }
+
+    .bottom-bar input,
+    .bottom-bar textarea {
+        background-color: #161821;
+        color: #ffffff;
+        border: 1px solid rgba(255, 42, 42, 0.35);
+    }
+
+    .bottom-bar input::placeholder,
+    .bottom-bar textarea::placeholder {
+        color: #8a8f9e;
+    }
+
+    nav a {
+        color: #e0e0e0;
+    }
+
+    nav a:hover {
+        color: #ff2a2a;
+    }
+
+    table {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    td, 
+    th {
+        border: 1px solid rgba(255, 42, 42, 0.25);
+        color: #e0e0e0;
+    }
+
+    .card {
+        background: linear-gradient(145deg, #181a22, #111218);
+        border: 1px solid rgba(255, 42, 42, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .card:hover {
+        border-color: rgba(255, 42, 42, 0.7);
+        box-shadow: 0 15px 30px rgba(255, 42, 42, 0.2), 0 0 15px rgba(255, 42, 42, 0.1) inset;
+    }
+
+    .menu-cursos button {
+        color: #ffffff;
+    }
+
+    #conteudo {
+        background: rgba(22, 24, 32, 0.9);
+        border: 1px solid rgba(255, 42, 42, 0.25);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    #conteudo img {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Área de chat e mensagens */
+    #resposta {
+        color: #e0e0e0;
+    }
+
+    .mensagem.usuario {
+        background: rgba(255, 42, 42, 0.25);
+        border: 1px solid rgba(255, 42, 42, 0.45);
+        color: #ffffff;
+    }
+
+    .mensagem.ia {
+        background: #181a22;
+        border: 1px solid rgba(255, 42, 42, 0.2);
+        color: #e0e0e0;
+    }
+
+    .mensagem.ia::after {
+        background: #181a22;
+        border-left: 1px solid rgba(255, 42, 42, 0.2);
+        border-bottom: 1px solid rgba(255, 42, 42, 0.2);
+    }
+
+    .mensagem.ia strong {
+        color: #ffffff;
+    }
+
+    .mensagem.ia em {
+        color: #a8aebf;
+    }
+
+    .mensagem.ia code {
+        background: rgba(255, 42, 42, 0.18);
+        color: #ff6b6b;
+    }
+
+    .mensagem.ia pre {
+        background: #0a0b0e;
+        border: 1px solid rgba(255, 42, 42, 0.25);
+    }
+
+    /* Barra de rolagem */
+    ::-webkit-scrollbar-track {
+        background: #121318;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #2a2a2a, #ff6666, #ff2a2a);
+    }
+}
+
+
+.quiz-box {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(20, 20, 26, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 42, 42, 0.35);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+#quizForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.quiz-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quiz-group label {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f1f1;
+    letter-spacing: 0.5px;
+}
+
+.quiz-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 42, 42, 0.4);
+    background-color: #16161d;
+    color: #ffffff;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-group select:focus {
+    outline: none;
+    border-color: #ff2a2a;
+    box-shadow: 0 0 10px rgba(255, 42, 42, 0.35);
+}
+
+/* Força o botão a ficar abaixo de todas as perguntas e centralizado */
+#buttonEnv {
+    position: static !important;
+    margin: 30px auto 0 !important;
+    padding: 14px 32px !important;
+    width: fit-content !important;
+    height: auto !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    background: transparent;
+    color: #f1f1f1;
+    border: 2px solid #ff2a2a;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#buttonEnv:hover:not(:disabled) {
+    background: #ff2a2a;
+    color: #ffffff;
+    box-shadow: 0 0 18px rgba(255, 42, 42, 0.6);
+    transform: translateY(-2px);
+}
+
+#buttonEnv:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
